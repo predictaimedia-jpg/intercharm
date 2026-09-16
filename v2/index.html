@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Клео на INTERCHARM — живой редакционный выпуск о людях, формулах и трендах красоты.">
+  <meta name="theme-color" content="#111111">
+  <title>Клео × INTERCHARM — выпуск из будущего</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23111111'/%3E%3Cpath d='M17 13v38M46 14 25 32l21 18' fill='none' stroke='%23ff3f93' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --ink:#111111;--paper:#f7f5ef;--white:#ffffff;--pink:#ec2f88;
+      --acid:#d9ff43;--blue:#a8d8ff;--violet:#b9a7ff;--line:#cbc8be;
+      --display:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif;
+      --pad:clamp(20px,4vw,64px);--radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;overflow-x:hidden}
+    body.high-contrast{--paper:#fff;--line:#111;--acid:#f2ff00;--pink:#d90065}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    button{color:inherit}
+    img{max-width:100%}
+    :focus-visible{outline:4px solid var(--blue);outline-offset:4px}
+    .skip{position:fixed;left:18px;top:-80px;background:var(--acid);padding:13px 18px;z-index:1000;font-weight:800}
+    .skip:focus{top:18px}
+    .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .serif{font-family:var(--display)}
+    .reveal{opacity:0;transform:translateY(34px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    .masthead{position:fixed;left:0;right:0;top:0;z-index:100;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px;height:82px;padding:0 var(--pad);background:rgba(247,245,239,.86);border-bottom:1px solid rgba(17,17,17,.18);backdrop-filter:blur(18px)}
+    .brand{width:150px;display:block}
+    .brand img{display:block;width:100%}
+    .nav{display:flex;justify-content:center;gap:clamp(14px,2.2vw,34px);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+    .nav a{position:relative;padding:9px 0}
+    .nav a:after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:3px;background:var(--pink);transition:right .25s}
+    .nav a:hover:after{right:0}
+    .tools{display:flex;gap:9px}
+    .icon-btn{width:42px;height:42px;border:1px solid var(--ink);border-radius:50%;background:transparent;display:grid;place-items:center;cursor:pointer;transition:transform .2s,background .2s}
+    .icon-btn:hover{transform:rotate(-7deg);background:var(--acid)}
+
+    .hero{min-height:100svh;padding:106px var(--pad) 24px;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);gap:18px;background:var(--paper)}
+    .hero-copy{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:calc(100svh - 130px);padding:clamp(24px,4vw,58px);background:var(--acid);border-radius:var(--radius);overflow:hidden}
+    .hero-copy:before{content:"";position:absolute;width:250px;height:250px;border:2px solid var(--ink);border-radius:50%;right:-65px;top:-75px}
+    .hero-copy:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--pink);right:44px;top:48px;animation:pulse 2.4s ease-in-out infinite}
+    @keyframes pulse{50%{transform:scale(1.8);box-shadow:0 0 0 15px rgba(236,47,136,.12)}}
+    .hero-top{display:flex;justify-content:space-between;gap:20px;position:relative;z-index:1}
+    .hero h1{font-family:var(--display);font-size:clamp(4.6rem,9.2vw,9.4rem);font-weight:400;line-height:.75;letter-spacing:-.075em;margin:.32em 0 .18em;position:relative;z-index:1}
+    .hero h1 .stroke{display:block;font-family:var(--sans);font-weight:900;font-size:.53em;letter-spacing:-.065em;color:transparent;-webkit-text-stroke:2px var(--ink)}
+    .hero-lead{position:relative;z-index:1;display:grid;grid-template-columns:1fr minmax(230px,.8fr);gap:30px;align-items:end}
+    .hero-lead p{font-size:clamp(1rem,1.3vw,1.24rem);line-height:1.45;max-width:520px;margin:0}
+    .go{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 18px;border:2px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,color .2s,transform .2s}
+    .go:hover{background:var(--pink);transform:translateY(-3px)}
+
+    .hero-visual{position:relative;min-height:calc(100svh - 130px);border-radius:var(--radius);overflow:hidden;background:#2a211c}
+    .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+    .hero-visual:hover img{transform:scale(1)}
+    .hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.78))}
+    .visual-meta{position:absolute;z-index:2;left:28px;right:28px;top:26px;display:flex;justify-content:space-between;align-items:center;color:#fff}
+    .live-dot{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .live-dot:before{content:"";width:10px;height:10px;border-radius:50%;background:#ff5b9d;box-shadow:0 0 0 8px rgba(255,91,157,.2)}
+    .visual-story{position:absolute;z-index:2;left:28px;right:28px;bottom:30px;color:#fff}
+    .visual-story h2{font:400 clamp(2rem,4vw,4.7rem)/.95 var(--display);letter-spacing:-.04em;margin:12px 0}
+    .visual-story p{max-width:500px;line-height:1.5;margin:0;color:rgba(255,255,255,.82)}
+    .float-card{position:absolute;z-index:3;right:24px;top:28%;width:190px;padding:18px;background:rgba(255,255,255,.92);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.2);transform:rotate(3deg);transition:transform .3s}
+    .float-card:hover{transform:rotate(0) scale(1.04)}
+    .float-card b{display:block;font:400 2.4rem var(--display);margin-top:6px}
+
+    .personal{padding:52px var(--pad) 76px;background:var(--ink);color:#fff}
+    .personal-grid{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:clamp(34px,7vw,120px);align-items:start}
+    .personal h2{font:400 clamp(3.2rem,6.5vw,7.4rem)/.85 var(--display);letter-spacing:-.055em;margin:18px 0 28px}
+    .personal h2 em{color:var(--pink);font-weight:400}
+    .personal-note{max-width:470px;line-height:1.55;color:#bbb}
+    .choice-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#aaa;margin:4px 0 14px}
+    .choices{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+    .choice{border:1px solid #777;background:transparent;color:#fff;border-radius:999px;padding:12px 17px;cursor:pointer;font-weight:700;transition:.2s}
+    .choice:hover,.choice.active{background:var(--acid);border-color:var(--acid);color:var(--ink);transform:translateY(-2px)}
+    .route-panel{background:#fff;color:var(--ink);border-radius:var(--radius);padding:clamp(24px,4vw,46px);min-height:390px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .route-panel:after{content:"→";position:absolute;right:24px;bottom:-38px;font:400 13rem var(--display);color:rgba(17,17,17,.06)}
+    .route-count{font:400 5rem/.8 var(--display);color:var(--pink)}
+    .route-panel h3{font:400 clamp(2.1rem,4vw,4.1rem)/.95 var(--display);letter-spacing:-.04em;margin:42px 0 16px;max-width:650px}
+    .route-panel p{font-size:1.08rem;line-height:1.5;max-width:620px;margin:0;color:#575757}
+    .route-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;position:relative;z-index:1}
+    .route-links a{border:1px solid #aaa;border-radius:999px;padding:11px 14px;font-size:.76rem;font-weight:800;text-transform:uppercase}
+
+    .ticker{overflow:hidden;border-block:1px solid var(--ink);background:var(--pink);color:#fff;padding:15px 0}
+    .ticker-track{display:flex;width:max-content;animation:ticker 28s linear infinite}
+    .ticker span{font-size:clamp(1.2rem,2.2vw,2rem);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;white-space:nowrap}
+    .ticker i{font-style:normal;color:var(--acid);padding:0 22px}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+
+    .today{padding:clamp(70px,9vw,130px) var(--pad);background:var(--paper)}
+    .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);gap:40px;align-items:end;margin-bottom:42px}
+    .section-head h2{font:400 clamp(3.5rem,7.3vw,8.2rem)/.82 var(--display);letter-spacing:-.06em;margin:0}
+    .section-head p{font-size:1.06rem;line-height:1.55;margin:0;max-width:480px}
+    .feed{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}
+    .feature{position:relative;min-height:700px;border-radius:var(--radius);overflow:hidden;color:#fff;background:#111}
+    .feature img,.story-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+    .feature:hover img,.story:hover img{transform:scale(1.035)}
+    .feature:after,.story-img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.84))}
+    .feature-copy{position:absolute;z-index:2;left:clamp(24px,4vw,54px);right:clamp(24px,4vw,54px);bottom:clamp(28px,4vw,54px)}
+    .feature h3{font:400 clamp(2.6rem,5vw,5.2rem)/.9 var(--display);letter-spacing:-.045em;margin:14px 0}
+    .story-list{display:grid;gap:18px}
+    .story{display:grid;grid-template-columns:42% 1fr;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;min-height:221px;transition:transform .25s,box-shadow .25s}
+    .story:hover{transform:translateX(-7px);box-shadow:14px 14px 0 var(--acid)}
+    .story-img{position:relative;overflow:hidden;min-height:220px}
+    .story-copy{padding:25px;display:flex;flex-direction:column;justify-content:space-between}
+    .story-copy h3{font:400 clamp(1.45rem,2.2vw,2.3rem)/1 var(--display);letter-spacing:-.025em;margin:12px 0}
+    .meta{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--pink)}
+    .read{font-size:.78rem;font-weight:800;text-transform:uppercase}
+
+    .lab{padding:0 var(--pad) clamp(76px,9vw,130px)}
+    .lab-shell{position:relative;min-height:780px;border-radius:var(--radius);overflow:hidden;background:#131313;color:#fff}
+    .lab-bg{position:absolute;inset:0}
+    .lab-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.08)}
+    .lab-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.94) 0%,rgba(8,8,8,.6) 47%,rgba(8,8,8,.12) 78%)}
+    .lab-copy{position:relative;z-index:2;padding:clamp(30px,6vw,80px);max-width:750px}
+    .lab-copy h2{font:400 clamp(4rem,8vw,9rem)/.82 var(--display);letter-spacing:-.06em;margin:60px 0 28px}
+    .lab-copy h2 span{color:var(--acid);font-style:italic}
+    .lab-copy p{font-size:1.14rem;line-height:1.55;max-width:520px;color:#ddd}
+    .lab-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .lab .go:first-child{background:var(--acid);color:var(--ink);border-color:var(--acid)}
+    .lab .go:last-child{background:transparent}
+    .lab-badge{position:absolute;z-index:3;right:4%;bottom:5%;width:230px;aspect-ratio:1;border-radius:50%;background:var(--pink);display:grid;place-items:center;text-align:center;animation:spin 18s linear infinite}
+    .lab-badge strong{font:400 3rem var(--display)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .future{padding:clamp(70px,9vw,130px) var(--pad);background:var(--blue)}
+    .future-top{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:end;margin-bottom:40px}
+    .future h2{font:400 clamp(4rem,8vw,9rem)/.82 var(--display);letter-spacing:-.06em;margin:0}
+    .future-top p{line-height:1.55}
+    .signal-list{border-top:2px solid var(--ink)}
+    .signal{display:grid;grid-template-columns:92px 1fr 1fr 40px;gap:24px;align-items:center;padding:26px 4px;border-bottom:1px solid rgba(17,17,17,.55);transition:background .2s,padding .2s}
+    .signal:hover{background:rgba(255,255,255,.55);padding-inline:18px}
+    .signal b{font:400 2.5rem var(--display)}
+    .signal h3{font:400 clamp(1.7rem,3vw,3.2rem)/1 var(--display);margin:0}
+    .signal p{line-height:1.45;margin:0}
+    .signal .arrow{font-size:2rem}
+
+    .people{padding:clamp(70px,9vw,130px) var(--pad);background:#fff}
+    .people-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+    .portrait{min-height:650px;border-radius:var(--radius);overflow:hidden;position:relative;color:#fff}
+    .portrait img{position:absolute;width:100%;height:100%;object-fit:cover}
+    .portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.88))}
+    .portrait-copy{position:absolute;z-index:2;left:34px;right:34px;bottom:36px}
+    .portrait h3{font:400 clamp(2.4rem,4vw,4.7rem)/.94 var(--display);margin:12px 0}
+    .quote-stack{display:grid;grid-template-rows:1fr auto;gap:18px}
+    .quote{padding:clamp(28px,4vw,52px);border-radius:var(--radius);background:var(--violet);display:flex;flex-direction:column;justify-content:space-between}
+    .quote blockquote{font:400 clamp(2rem,3.4vw,3.7rem)/1 var(--display);letter-spacing:-.03em;margin:0}
+    .quote cite{font-style:normal;font-weight:800;margin-top:32px}
+    .partner-slot{display:grid;grid-template-columns:1fr 170px;gap:20px;align-items:center;padding:26px;border:2px dashed var(--ink);border-radius:var(--radius);background:var(--acid)}
+    .partner-slot h3{font:400 2rem/1 var(--display);margin:8px 0}
+    .partner-logo{height:100px;background:#fff;border:1px solid var(--ink);display:grid;place-items:center;text-align:center;font-weight:900}
+
+    .catalog{padding:clamp(70px,9vw,120px) var(--pad);background:var(--ink);color:#fff}
+    .catalog-top{display:grid;grid-template-columns:1fr minmax(280px,.55fr);gap:40px;align-items:end;margin-bottom:36px}
+    .catalog h2{font:400 clamp(3.6rem,7vw,7.5rem)/.84 var(--display);letter-spacing:-.055em;margin:0}
+    .search{width:100%;height:58px;padding:0 20px;border:1px solid #888;border-radius:999px;background:#222;color:#fff;font-size:1rem}
+    .search::placeholder{color:#aaa}
+    .brands{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .brand-card{min-height:180px;padding:22px;border:1px solid #555;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+    .brand-card:hover{background:var(--pink);border-color:var(--pink);transform:translateY(-7px)}
+    .brand-card small{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#bbb}
+    .brand-card:hover small{color:#fff}
+    .brand-card strong{font:400 1.8rem var(--display)}
+    .brand-card[hidden]{display:none}
+    .empty{display:none;margin-top:20px;color:#bbb}
+
+    footer{padding:50px var(--pad) 26px;background:var(--paper)}
+    .footer-main{display:grid;grid-template-columns:240px 1fr 290px;gap:50px;align-items:start}
+    .footer-main img{width:180px}
+    .footer-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-weight:700}
+    .footer-note{line-height:1.5}
+    .legal{display:flex;justify-content:space-between;gap:20px;padding-top:28px;margin-top:40px;border-top:1px solid var(--line);font-size:.78rem;color:#686868}
+
+    @media(max-width:1050px){
+      .nav{display:none}.hero{grid-template-columns:1fr}.hero-copy,.hero-visual{min-height:720px}
+      .personal-grid,.people-grid{grid-template-columns:1fr}.feed{grid-template-columns:1fr}
+      .feature{min-height:620px}.story-list{grid-template-columns:repeat(2,1fr)}
+      .story{grid-template-columns:1fr}.story:last-child{grid-column:1/-1}
+      .future-top,.catalog-top{grid-template-columns:1fr}.brands{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:700px){
+      :root{--pad:16px;--radius:17px}
+      .masthead{height:70px}.brand{width:120px}.tools .icon-btn:first-child{display:none}
+      .hero{padding-top:86px}.hero-copy,.hero-visual{min-height:auto}.hero-copy{height:620px;padding:24px}
+      .hero h1{font-size:clamp(4.15rem,23vw,6.4rem);margin-top:.7em}.hero-top .eyebrow:last-child{display:none}
+      .hero-lead{grid-template-columns:1fr}.hero-visual{height:680px}.float-card{width:154px;right:14px;top:23%}
+      .personal{padding-top:60px}.personal-grid{gap:34px}.route-panel{min-height:440px}
+      .section-head{grid-template-columns:1fr}.today{padding-top:70px}.feature{min-height:580px}
+      .story-list{grid-template-columns:1fr}.story:last-child{grid-column:auto}.story{grid-template-columns:40% 1fr}
+      .lab-shell{min-height:710px}.lab-copy h2{margin-top:85px}.lab-badge{width:150px;right:18px;bottom:20px}.lab-badge strong{font-size:2rem}
+      .signal{grid-template-columns:55px 1fr 28px}.signal p{grid-column:2/4}.signal b{font-size:1.8rem}
+      .portrait{min-height:600px}.partner-slot{grid-template-columns:1fr}.partner-logo{height:70px}
+      .brands{grid-template-columns:1fr 1fr}.brand-card{min-height:150px}
+      .footer-main{grid-template-columns:1fr}.footer-nav{grid-template-columns:1fr 1fr}.legal{flex-direction:column}
+    }
+    @media(max-width:460px){
+      .story{grid-template-columns:1fr}.story-img{min-height:230px}.brands{grid-template-columns:1fr}
+      .hero-visual{height:620px}.visual-story h2{font-size:2.8rem}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к материалам</a>
+  <header class="masthead">
+    <a class="brand" href="../" aria-label="Клео — главная версия спецпроекта"><img src="../assets/kleo-logo-official.svg" alt="Клео"></a>
+    <nav class="nav" aria-label="Навигация спецпроекта">
+      <a href="#today">Сегодня</a><a href="#future">Тренды 2027</a><a href="#people">Люди</a><a href="#catalog">Участники</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="contrast" type="button" aria-label="Переключить высокий контраст">◐</button>
+      <a class="icon-btn" href="#catalog" aria-label="Найти участника">⌕</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="hero-top"><span class="eyebrow">Клео × INTERCHARM</span><span class="eyebrow">14–17 октября · Москва</span></div>
+        <h1 id="hero-title">BEAUTY<span class="stroke">NEXT / 2027</span></h1>
+        <div class="hero-lead">
+          <p>Живой редакционный выпуск о формулах, людях и идеях, которые уже меняют индустрию красоты.</p>
+          <a class="go" href="#personal">Собрать свой выпуск <span>↘</span></a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Главный материал дня">
+        <img src="../assets/v6-hero-premium.png" alt="Бьюти-эксперт с косметическим продуктом в футуристичном пространстве">
+        <div class="visual-meta"><span class="live-dot">LIVE · день 1</span><span class="eyebrow">Полевой выпуск</span></div>
+        <div class="float-card"><span class="eyebrow">Сегодня</span><b>5</b><span>новых историй<br>из павильонов</span></div>
+        <div class="visual-story"><span class="eyebrow">Главная история</span><h2>Красота в прямом эфире</h2><p>Что стоит попробовать, увидеть и сохранить — выбор редакции без потока пресс-релизов.</p></div>
+      </div>
+    </section>
+
+    <section class="personal" id="personal" aria-labelledby="personal-title">
+      <div class="personal-grid">
+        <div class="reveal">
+          <span class="eyebrow">Ваш личный выпуск</span>
+          <h2 id="personal-title">С чего<br><em>начнём?</em></h2>
+          <p class="personal-note">Выберите интерес — страница сразу соберёт маршрут по самым полезным материалам дня. Настройка останется на этом устройстве.</p>
+        </div>
+        <div class="reveal">
+          <p class="choice-label">Мне интересны</p>
+          <div class="choices" role="group" aria-label="Выберите интерес">
+            <button class="choice active" type="button" data-mode="future" aria-pressed="true">Будущее индустрии</button>
+            <button class="choice" type="button" data-mode="products" aria-pressed="false">Новые продукты</button>
+            <button class="choice" type="button" data-mode="inside" aria-pressed="false">Жизнь выставки</button>
+          </div>
+          <div class="route-panel" aria-live="polite">
+            <span class="route-count" id="route-count">01</span>
+            <div>
+              <h3 id="route-title">Понять, что будет определять красоту завтра</h3>
+              <p id="route-copy">Стартапы, лаборатории, новые технологии и пять сигналов, которые редакция заберёт в 2027 год.</p>
+              <div class="route-links" id="route-links"><a href="#future">Тренды 2027</a><a href="#lab">Лаборатория</a><a href="#people">Люди</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">
+      <span>5 новостей каждый день <i>✦</i> 1 большое интервью <i>✦</i> 1 мнение эксперта <i>✦</i> 2 обзора корреспондента <i>✦</i> видео и фотогалереи <i>✦</i></span>
+      <span>5 новостей каждый день <i>✦</i> 1 большое интервью <i>✦</i> 1 мнение эксперта <i>✦</i> 2 обзора корреспондента <i>✦</i> видео и фотогалереи <i>✦</i></span>
+    </div></div>
+
+    <section class="today" id="today" aria-labelledby="today-title">
+      <div class="section-head reveal"><h2 id="today-title">Сегодня<br>в фокусе</h2><p>Пять историй вместо бесконечной ленты. В каждой — ясный вывод: зачем это знать и что с этим делать.</p></div>
+      <div class="feed">
+        <article class="feature reveal">
+          <img src="../assets/v5-lab.png" alt="Косметическая лаборатория и создание новой формулы">
+          <div class="feature-copy"><span class="meta">Лаборатория красоты · 12:00</span><h3>Формула доверия: что происходит до того, как крем попадает на полку</h3><span class="read">Читать большой материал →</span></div>
+        </article>
+        <div class="story-list">
+          <article class="story reveal"><div class="story-img"><img src="../assets/kleo-beauty-concealer-real.jpg" alt="Тестирование консилера"></div><div class="story-copy"><div><span class="meta">Редакционный тест</span><h3>Консилеры нового поколения: восемь часов без фильтров</h3></div><span class="read">Результаты →</span></div></article>
+          <article class="story reveal"><div class="story-img"><img src="../assets/v5-03.png" alt="Яркая красная косметическая текстура"></div><div class="story-copy"><div><span class="meta">Тренды 2027</span><h3>Красный возвращается — в макияж, упаковку и кампании</h3></div><span class="read">Разобрать тренд →</span></div></article>
+          <article class="story reveal"><div class="story-img"><img src="../assets/v5-perfume.png" alt="Флакон нишевого аромата"></div><div class="story-copy"><div><span class="meta">Парфюм дня</span><h3>Тёплый древесный аромат, который хочется запомнить</h3></div><span class="read">Узнать ноты →</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab" id="lab" aria-labelledby="lab-title">
+      <div class="lab-shell reveal">
+        <div class="lab-bg"><img src="../assets/v5-video.png" alt="Бьюти-съёмка продукта в движении"></div>
+        <div class="lab-copy">
+          <span class="eyebrow">Смотреть · 02:18</span>
+          <h2 id="lab-title">Тестируем<br><span>будущее</span></h2>
+          <p>Редакция пробует технологии и продукты прямо на выставке — коротко, честно и с крупными планами.</p>
+          <div class="lab-actions"><a class="go" href="#future">Смотреть выпуск <span>▶</span></a><a class="go" href="#today">Все тесты <span>→</span></a></div>
+        </div>
+        <div class="lab-badge" aria-hidden="true"><div><span class="eyebrow">Выбор редакции</span><br><strong>05</strong><br>открытий дня</div></div>
+      </div>
+    </section>
+
+    <section class="future" id="future" aria-labelledby="future-title">
+      <div class="future-top reveal"><h2 id="future-title">Сигналы<br>2027</h2><p>Не прогноз ради прогноза. Пять изменений, которые уже заметны в формулах, упаковке и поведении покупателей.</p></div>
+      <div class="signal-list">
+        <a class="signal reveal" href="#"><b>01</b><h3>Уход становится умнее</h3><p>Диагностика, персональные протоколы и формулы, которые подстраиваются под состояние кожи.</p><span class="arrow">↗</span></a>
+        <a class="signal reveal" href="#"><b>02</b><h3>Текстура — новый интерфейс</h3><p>Продукт объясняет себя через тактильность ещё до первого результата.</p><span class="arrow">↗</span></a>
+        <a class="signal reveal" href="#"><b>03</b><h3>Made in Russia взрослеет</h3><p>Локальные марки конкурируют не происхождением, а собственным визуальным языком.</p><span class="arrow">↗</span></a>
+        <a class="signal reveal" href="#"><b>04</b><h3>Парфюм выходит из правил</h3><p>Ноты становятся личным сценарием, а флакон — объектом коллекционирования.</p><span class="arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="people" id="people" aria-labelledby="people-title">
+      <div class="section-head reveal"><h2 id="people-title">Люди<br>индустрии</h2><p>Каждый день — одно большое интервью и одно мнение эксперта. Разговор по существу, а не рекламный монолог.</p></div>
+      <div class="people-grid">
+        <article class="portrait reveal"><img src="../assets/hero-beauty.png" alt="Основательница российского косметического бренда"><div class="portrait-copy"><span class="meta">Большое интервью</span><h3>«Российскому бренду уже мало быть локальным. Нужен свой язык»</h3><span class="read">Читать разговор →</span></div></article>
+        <div class="quote-stack">
+          <article class="quote reveal"><span class="eyebrow">Мнение эксперта</span><blockquote>«Следующий большой тренд — не ингредиент. Это доверие к тому, как продукт создан»</blockquote><cite>Анна Воронова · косметический химик</cite></article>
+          <aside class="partner-slot reveal"><div><span class="eyebrow">Партнёрский материал</span><h3>Нативная интеграция внутри полезной темы</h3><span class="read">С корректной маркировкой</span></div><div class="partner-logo">ЛОГО<br>ПАРТНЁРА</div></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-top reveal"><div><span class="eyebrow">Навигация по выставке</span><h2 id="catalog-title">Кого<br>найти</h2></div><div><label class="eyebrow" for="brand-search">Поиск по участникам</label><input class="search" id="brand-search" type="search" placeholder="Бренд или категория…" autocomplete="off"></div></div>
+      <div class="brands" id="brands">
+        <a class="brand-card reveal" href="#" data-search="art-visage макияж декоративная косметика"><small>Декоративная косметика</small><strong>ART-VISAGE</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="geltek профессиональный уход косметология"><small>Профессиональный уход</small><strong>GELTEK</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="gordon’s lab уход за кожей лаборатория"><small>Уход за кожей</small><strong>Gordon’s Lab</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="oligohome парфюмерия ароматы"><small>Парфюмерия</small><strong>Oligohome</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="equivalent натуральная косметика уход"><small>Натуральная косметика</small><strong>Equivalent</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="thearomashop ароматы парфюмерия"><small>Ароматы</small><strong>TheAromaShop</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="skindex бьюти технологии диагностика"><small>Бьюти-технологии</small><strong>Skindex</strong><span>Открыть карточку ↗</span></a>
+        <a class="brand-card reveal" href="#" data-search="offizprofi оборудование салон"><small>Оборудование</small><strong>OFFIZPROFI</strong><span>Открыть карточку ↗</span></a>
+      </div>
+      <p class="empty" id="empty">По вашему запросу участников не найдено.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-main"><div><img src="../assets/kleo-logo-official.svg" alt="Клео"><p>Твой путеводитель в мир звёзд, моды и красоты.</p></div><nav class="footer-nav" aria-label="Разделы"><a href="#today">Сегодня</a><a href="#future">Тренды 2027</a><a href="#people">Интервью</a><a href="#lab">Видео</a><a href="#catalog">Каталог</a><a href="../">Версия 1</a></nav><div class="footer-note"><b>INTERCHARM 2026</b><p>14–17 октября · Москва<br>Редакционный спецпроект Клео.ру</p></div></div>
+    <div class="legal"><span>Партнёрские материалы визуально выделены и сопровождаются маркировкой.</span><span>© Клео.ру</span></div>
+  </footer>
+
+  <script>
+    (function(){
+      var routes={
+        future:{count:"01",title:"Понять, что будет определять красоту завтра",copy:"Стартапы, лаборатории, новые технологии и пять сигналов, которые редакция заберёт в 2027 год.",links:[["Тренды 2027","#future"],["Лаборатория","#lab"],["Люди","#people"]]},
+        products:{count:"02",title:"Найти продукты, которые действительно стоит попробовать",copy:"Редакционные тесты, новинки дня и короткие разборы без ощущения рекламного каталога.",links:[["Тесты","#today"],["Выбор редакции","#lab"],["Участники","#catalog"]]},
+        inside:{count:"03",title:"Почувствовать выставку, даже если вы не в павильонах",copy:"Главные открытия дня, живые видео, разговоры с основателями и понятный маршрут по участникам.",links:[["Сегодня","#today"],["Смотреть","#lab"],["Кого найти","#catalog"]]}
+      };
+      var buttons=document.querySelectorAll(".choice");
+      var setMode=function(mode){
+        var data=routes[mode]||routes.future;
+        document.getElementById("route-count").textContent=data.count;
+        document.getElementById("route-title").textContent=data.title;
+        document.getElementById("route-copy").textContent=data.copy;
+        var links=document.getElementById("route-links");links.innerHTML="";
+        data.links.forEach(function(item){var a=document.createElement("a");a.textContent=item[0];a.href=item[1];links.appendChild(a)});
+        buttons.forEach(function(btn){var on=btn.getAttribute("data-mode")===mode;btn.classList.toggle("active",on);btn.setAttribute("aria-pressed",String(on))});
+        try{localStorage.setItem("kleo-intercharm-route",mode)}catch(e){}
+      };
+      buttons.forEach(function(btn){btn.addEventListener("click",function(){setMode(btn.getAttribute("data-mode"))})});
+      try{var saved=localStorage.getItem("kleo-intercharm-route");if(routes[saved])setMode(saved)}catch(e){}
+
+      var search=document.getElementById("brand-search"),cards=document.querySelectorAll(".brand-card"),empty=document.getElementById("empty");
+      search.addEventListener("input",function(){
+        var q=search.value.trim().toLowerCase(),visible=0;
+        cards.forEach(function(card){var show=!q||card.getAttribute("data-search").indexOf(q)>-1;card.hidden=!show;if(show)visible++});
+        empty.style.display=visible?"none":"block";
+      });
+
+      document.getElementById("contrast").addEventListener("click",function(){
+        document.body.classList.toggle("high-contrast");
+        this.setAttribute("aria-pressed",String(document.body.classList.contains("high-contrast")));
+      });
+
+      var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if(reduced){document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("is-visible")})}
+      else{
+        var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}})},{threshold:.12});
+        document.querySelectorAll(".reveal").forEach(function(el){observer.observe(el)});
+      }
+    })();
+  </script>
+</body>
+</html>
