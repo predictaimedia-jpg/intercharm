@@ -47,7 +47,7 @@
     .hero-copy:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--pink);right:44px;top:48px;animation:pulse 2.4s ease-in-out infinite}
     @keyframes pulse{50%{transform:scale(1.8);box-shadow:0 0 0 15px rgba(236,47,136,.12)}}
     .hero-top{display:flex;justify-content:space-between;gap:20px;position:relative;z-index:1}
-    .hero h1{font-family:var(--display);font-size:clamp(4.6rem,9.2vw,9.4rem);font-weight:400;line-height:.75;letter-spacing:-.075em;margin:.32em 0 .18em;position:relative;z-index:1}
+    .hero h1{font-family:var(--display);font-size:clamp(4.2rem,7.2vw,7.4rem);font-weight:400;line-height:.78;letter-spacing:-.075em;margin:.32em 0 .18em;position:relative;z-index:1}
     .hero h1 .stroke{display:block;font-family:var(--sans);font-weight:900;font-size:.53em;letter-spacing:-.065em;color:transparent;-webkit-text-stroke:2px var(--ink)}
     .hero-lead{position:relative;z-index:1;display:grid;grid-template-columns:1fr minmax(230px,.8fr);gap:30px;align-items:end}
     .hero-lead p{font-size:clamp(1rem,1.3vw,1.24rem);line-height:1.45;max-width:520px;margin:0}
@@ -68,22 +68,15 @@
     .float-card:hover{transform:rotate(0) scale(1.04)}
     .float-card b{display:block;font:400 2.4rem var(--display);margin-top:6px}
 
-    .personal{padding:52px var(--pad) 76px;background:var(--ink);color:#fff}
-    .personal-grid{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:clamp(34px,7vw,120px);align-items:start}
-    .personal h2{font:400 clamp(3.2rem,6.5vw,7.4rem)/.85 var(--display);letter-spacing:-.055em;margin:18px 0 28px}
-    .personal h2 em{color:var(--pink);font-weight:400}
-    .personal-note{max-width:470px;line-height:1.55;color:#bbb}
+    .topic-bar{display:grid;grid-template-columns:auto auto minmax(260px,1fr);align-items:center;gap:24px;padding:18px var(--pad);background:var(--ink);color:#fff}
+    .topic-bar .choice-label{margin:0;white-space:nowrap;color:#fff}
+    .topic-bar .choices{margin:0;flex-wrap:nowrap}
+    .topic-summary{margin:0;padding-left:24px;border-left:1px solid #555;color:#d7d3ce;line-height:1.35}
+
     .choice-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#aaa;margin:4px 0 14px}
     .choices{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
     .choice{border:1px solid #777;background:transparent;color:#fff;border-radius:999px;padding:12px 17px;cursor:pointer;font-weight:700;transition:.2s}
     .choice:hover,.choice.active{background:var(--acid);border-color:var(--acid);color:var(--ink);transform:translateY(-2px)}
-    .route-panel{background:#fff;color:var(--ink);border-radius:var(--radius);padding:clamp(24px,4vw,46px);min-height:390px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-    .route-panel:after{content:"→";position:absolute;right:24px;bottom:-38px;font:400 13rem var(--display);color:rgba(17,17,17,.06)}
-    .route-count{font:400 5rem/.8 var(--display);color:var(--pink)}
-    .route-panel h3{font:400 clamp(2.1rem,4vw,4.1rem)/.95 var(--display);letter-spacing:-.04em;margin:42px 0 16px;max-width:650px}
-    .route-panel p{font-size:1.08rem;line-height:1.5;max-width:620px;margin:0;color:#575757}
-    .route-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;position:relative;z-index:1}
-    .route-links a{border:1px solid #aaa;border-radius:999px;padding:11px 14px;font-size:.76rem;font-weight:800;text-transform:uppercase}
 
     .ticker{overflow:hidden;border-block:1px solid var(--ink);background:#71153f;color:#fff;padding:15px 0}
     .ticker-track{display:flex;width:max-content;animation:ticker 28s linear infinite}
@@ -177,7 +170,7 @@
 
     @media(max-width:1050px){
       .nav{display:none}.hero{grid-template-columns:1fr}.hero-copy,.hero-visual{min-height:720px}
-      .personal-grid,.people-grid{grid-template-columns:1fr}.feed{grid-template-columns:1fr}
+      .people-grid{grid-template-columns:1fr}.feed{grid-template-columns:1fr}
       .feature{min-height:620px}.story-list{grid-template-columns:repeat(2,1fr)}
       .story{grid-template-columns:1fr}.story:last-child{grid-column:1/-1}
       .future-top,.catalog-top{grid-template-columns:1fr}.brands{grid-template-columns:repeat(2,1fr)}
@@ -186,9 +179,8 @@
       :root{--pad:16px;--radius:17px}
       .masthead{height:70px}.brand{width:120px}.tools .icon-btn:first-child{display:none}
       .hero{padding-top:86px}.hero-copy,.hero-visual{min-height:auto}.hero-copy{height:620px;padding:24px}
-      .hero h1{font-size:clamp(4.15rem,23vw,6.4rem);margin-top:.7em}.hero-top .eyebrow:last-child{display:none}
+      .hero h1{font-size:clamp(3.3rem,17vw,5rem);margin-top:.7em}.hero-top .eyebrow:last-child{display:none}
       .hero-lead{grid-template-columns:1fr}.hero-visual{height:680px}.float-card{width:154px;right:14px;top:23%}
-      .personal{padding-top:60px}.personal-grid{gap:34px}.route-panel{min-height:440px}
       .section-head{grid-template-columns:1fr}.today{padding-top:70px}.feature{min-height:580px}
       .story-list{grid-template-columns:1fr}.story:last-child{grid-column:auto}.story{grid-template-columns:40% 1fr}
       .lab-shell{min-height:710px}.lab-copy h2{margin-top:85px}.lab-badge{width:150px;right:18px;bottom:20px}.lab-badge strong{font-size:2rem}
@@ -196,6 +188,7 @@
       .portrait{min-height:600px}.partner-slot{grid-template-columns:1fr}.partner-logo{height:70px}
       .brands{grid-template-columns:1fr 1fr}.brand-card{min-height:150px}
       .footer-main{grid-template-columns:1fr}.footer-nav{grid-template-columns:1fr 1fr}.legal{flex-direction:column}
+      .topic-bar{grid-template-columns:1fr;gap:12px;padding-block:22px}.topic-bar .choices{overflow:auto;padding-bottom:4px}.topic-summary{padding:12px 0 0;border-left:0;border-top:1px solid #555}
     }
     @media(max-width:460px){
       .story{grid-template-columns:1fr}.story-img{min-height:230px}.brands{grid-template-columns:1fr}
@@ -223,45 +216,29 @@
   <main id="content">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <div class="hero-top"><span class="eyebrow">Редакционный спецпроект</span><span class="eyebrow">14–17 октября · Москва</span></div>
-        <h1 id="hero-title">КЛЕО ×<span class="stroke">INTERCHARM</span></h1>
+        <div class="hero-top"><span class="eyebrow">Клео × INTERCHARM</span><span class="eyebrow">14–17 октября · Москва</span></div>
+        <h1 id="hero-title">5 ОТКРЫТИЙ<span class="stroke">ПЕРВОГО ДНЯ</span></h1>
         <div class="hero-lead">
-          <p><b>Главное с выставки — каждый день.</b><br>Пять новостей, интервью, мнение эксперта и два обзора нашего корреспондента.</p>
-          <a class="go" href="#today">Смотреть материалы дня <span>↘</span></a>
+          <p>Новые формулы, российские бренды, технологии ухода, красный макияж и аромат, который обсуждают все.</p>
+          <a class="go" href="#today">Читать материалы <span>↘</span></a>
         </div>
       </div>
       <div class="hero-visual" aria-label="Главный редакционный материал дня">
         <img src="../assets/v6-hero-premium.png" alt="Бьюти-эксперт с косметическим продуктом в футуристичном пространстве">
         <div class="visual-meta"><span class="live-dot">Главный материал дня</span><span class="eyebrow">Обновлено · 14:30</span></div>
         <div class="float-card"><span class="eyebrow">В выпуске</span><b>5</b><span>новостей · интервью<br>· два обзора</span></div>
-        <div class="visual-story"><span class="eyebrow">Репортаж с места</span><h2>Красота в прямом эфире</h2><p>Что стоит попробовать, увидеть и сохранить — выбор редакции без потока пресс-релизов.</p></div>
+        <div class="visual-story"><span class="eyebrow">Тренд первого дня</span><h2>Почему текстура снова продаёт косметику</h2><p>Разбираем формулы, которые хочется попробовать ещё до обещанного результата.</p></div>
       </div>
     </section>
 
-    <section class="personal" id="personal" aria-labelledby="personal-title">
-      <div class="personal-grid">
-        <div class="reveal">
-          <span class="eyebrow">Ваш личный выпуск</span>
-          <h2 id="personal-title">С чего<br><em>начнём?</em></h2>
-          <p class="personal-note">Выберите интерес — страница сразу соберёт маршрут по самым полезным материалам дня. Настройка останется на этом устройстве.</p>
-        </div>
-        <div class="reveal">
-          <p class="choice-label">Мне интересны</p>
-          <div class="choices" role="group" aria-label="Выберите интерес">
-            <button class="choice active" type="button" data-mode="future" aria-pressed="true">Будущее индустрии</button>
-            <button class="choice" type="button" data-mode="products" aria-pressed="false">Новые продукты</button>
-            <button class="choice" type="button" data-mode="inside" aria-pressed="false">Жизнь выставки</button>
-          </div>
-          <div class="route-panel" aria-live="polite">
-            <span class="route-count" id="route-count">01</span>
-            <div>
-              <h3 id="route-title">Понять, что будет определять красоту завтра</h3>
-              <p id="route-copy">Стартапы, лаборатории, новые технологии и пять сигналов, которые редакция заберёт в 2027 год.</p>
-              <div class="route-links" id="route-links"><a href="#future">Тренды 2027</a><a href="#lab">Лаборатория</a><a href="#people">Люди</a></div>
-            </div>
-          </div>
-        </div>
+    <section class="topic-bar" id="personal" aria-label="Настройка материалов">
+      <p class="choice-label">Показывать сначала:</p>
+      <div class="choices" role="group" aria-label="Выберите интерес">
+        <button class="choice active" type="button" data-mode="future" aria-pressed="true">Тренды</button>
+        <button class="choice" type="button" data-mode="products" aria-pressed="false">Продукты</button>
+        <button class="choice" type="button" data-mode="inside" aria-pressed="false">Репортажи</button>
       </div>
+      <p class="topic-summary" id="route-summary" aria-live="polite">В подборке: технологии ухода, новые формулы и прогнозы рынка на 2027 год.</p>
     </section>
 
     <div class="ticker" aria-hidden="true"><div class="ticker-track">
@@ -270,11 +247,11 @@
     </div></div>
 
     <section class="today" id="today" aria-labelledby="today-title">
-      <div class="section-head reveal"><h2 id="today-title">Сегодня<br>в фокусе</h2><p>Пять историй вместо бесконечной ленты. В каждой — ясный вывод: зачем это знать и что с этим делать.</p></div>
+      <div class="section-head reveal"><h2 id="today-title">5 материалов<br>первого дня</h2><p>Формулы, продукты, технологии, люди и один аромат — выбор редакции из павильонов INTERCHARM.</p></div>
       <div class="feed">
         <article class="feature reveal">
           <img src="../assets/v5-lab.png" alt="Косметическая лаборатория и создание новой формулы">
-          <div class="feature-copy"><span class="meta">Лаборатория красоты · 12:00</span><h3>Формула доверия: что происходит до того, как крем попадает на полку</h3><span class="read">Читать большой материал →</span></div>
+          <div class="feature-copy"><span class="meta">Лаборатория красоты · 12:00</span><h3>Как создают формулы, которым доверяют покупательницы</h3><span class="read">Читать большой материал →</span></div>
         </article>
         <div class="story-list">
           <article class="story reveal"><div class="story-img"><img src="../assets/kleo-beauty-concealer-real.jpg" alt="Тестирование консилера"></div><div class="story-copy"><div><span class="meta">Редакционный тест</span><h3>Консилеры нового поколения: восемь часов без фильтров</h3></div><span class="read">Результаты →</span></div></article>
@@ -289,8 +266,8 @@
         <div class="lab-bg"><img src="../assets/v5-video.png" alt="Бьюти-съёмка продукта в движении"></div>
         <div class="lab-copy">
           <span class="eyebrow">Смотреть · 02:18</span>
-          <h2 id="lab-title">Тестируем<br><span>будущее</span></h2>
-          <p>Редакция пробует технологии и продукты прямо на выставке — коротко, честно и с крупными планами.</p>
+          <h2 id="lab-title">5 технологий<br><span>в тесте</span></h2>
+          <p>Что действительно работает: редакция проверяет устройства и продукты прямо на выставке.</p>
           <div class="lab-actions"><a class="go" href="#future">Смотреть выпуск <span>▶</span></a><a class="go" href="#today">Все тесты <span>→</span></a></div>
         </div>
         <div class="lab-badge" aria-hidden="true"><div><span class="eyebrow">Выбор редакции</span><br><strong>05</strong><br>открытий дня</div></div>
@@ -298,7 +275,7 @@
     </section>
 
     <section class="future" id="future" aria-labelledby="future-title">
-      <div class="future-top reveal"><h2 id="future-title">Сигналы<br>2027</h2><p>Не прогноз ради прогноза. Пять изменений, которые уже заметны в формулах, упаковке и поведении покупателей.</p></div>
+      <div class="future-top reveal"><h2 id="future-title">4 тренда<br>2027 года</h2><p>Изменения, которые уже видны в формулах, упаковке и поведении покупателей.</p></div>
       <div class="signal-list">
         <a class="signal reveal" href="#"><b>01</b><h3>Уход становится умнее</h3><p>Диагностика, персональные протоколы и формулы, которые подстраиваются под состояние кожи.</p><span class="arrow">↗</span></a>
         <a class="signal reveal" href="#"><b>02</b><h3>Текстура — новый интерфейс</h3><p>Продукт объясняет себя через тактильность ещё до первого результата.</p><span class="arrow">↗</span></a>
@@ -308,7 +285,7 @@
     </section>
 
     <section class="people" id="people" aria-labelledby="people-title">
-      <div class="section-head reveal"><h2 id="people-title">Люди<br>индустрии</h2><p>Каждый день — одно большое интервью и одно мнение эксперта. Разговор по существу, а не рекламный монолог.</p></div>
+      <div class="section-head reveal"><h2 id="people-title">Кто двигает<br>индустрию</h2><p>Основатель российского бренда и косметический химик — о формулах, экспорте и доверии покупателей.</p></div>
       <div class="people-grid">
         <article class="portrait reveal"><img src="../assets/hero-beauty.png" alt="Основательница российского косметического бренда"><div class="portrait-copy"><span class="meta">Большое интервью</span><h3>«Российскому бренду уже мало быть локальным. Нужен свой язык»</h3><span class="read">Читать разговор →</span></div></article>
         <div class="quote-stack">
@@ -342,18 +319,14 @@
   <script>
     (function(){
       var routes={
-        future:{count:"01",title:"Понять, что будет определять красоту завтра",copy:"Стартапы, лаборатории, новые технологии и пять сигналов, которые редакция заберёт в 2027 год.",links:[["Тренды 2027","#future"],["Лаборатория","#lab"],["Люди","#people"]]},
-        products:{count:"02",title:"Найти продукты, которые действительно стоит попробовать",copy:"Редакционные тесты, новинки дня и короткие разборы без ощущения рекламного каталога.",links:[["Тесты","#today"],["Выбор редакции","#lab"],["Участники","#catalog"]]},
-        inside:{count:"03",title:"Почувствовать выставку, даже если вы не в павильонах",copy:"Главные открытия дня, живые видео, разговоры с основателями и понятный маршрут по участникам.",links:[["Сегодня","#today"],["Смотреть","#lab"],["Кого найти","#catalog"]]}
+        future:"В подборке: технологии ухода, новые формулы и прогнозы рынка на 2027 год.",
+        products:"В подборке: редакционные тесты, новинки дня и продукты российских брендов.",
+        inside:"В подборке: новости из павильонов, интервью, два обзора и видеорепортаж."
       };
       var buttons=document.querySelectorAll(".choice");
       var setMode=function(mode){
         var data=routes[mode]||routes.future;
-        document.getElementById("route-count").textContent=data.count;
-        document.getElementById("route-title").textContent=data.title;
-        document.getElementById("route-copy").textContent=data.copy;
-        var links=document.getElementById("route-links");links.innerHTML="";
-        data.links.forEach(function(item){var a=document.createElement("a");a.textContent=item[0];a.href=item[1];links.appendChild(a)});
+        document.getElementById("route-summary").textContent=data;
         buttons.forEach(function(btn){var on=btn.getAttribute("data-mode")===mode;btn.classList.toggle("active",on);btn.setAttribute("aria-pressed",String(on))});
         try{localStorage.setItem("kleo-intercharm-route",mode)}catch(e){}
       };
